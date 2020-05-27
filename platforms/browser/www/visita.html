@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/css/materialize.min.css">
+  <link rel="stylesheet" href="assets/css/icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Visitas</title>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper black">
+      <a href="index.html" class="brand-logo center"><img src="assets/img/logo.png" alt="" id="logo"></a>
+      <a class="btn-floating btn-small grey" id="home" href="index.html">
+        <i class="large material-icons">home</i>
+      </a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m7">
+          <img class="responsive-img" id="imgv"src="assets/img/img.jpg">
+          <blockquote class="flow-text">
+            <p align="justify">
+            Em respeito à rotina de vida das crianças,
+            as visitas durante a semana, acontecem na quarta feira,
+            nos horários de 15:30 às 17:00 hrs, se destinam a apresentação da casa,
+            como trabalhamos, o que estamos fazendo e, como estamos. Os agendamentos de atividades
+            recreativas estão autorizadas nos finais de semana, Sábado, Domingo e Feriados, nos horários 9hrs as 10:30 hrs e 14 hrs as 16:30 hrs,
+            considerando a necessidade de arrumar o ambiente.</p>
+          </blockquote>
+    </div>
+  </div>
+    <h4 class="center">Agende Uma visita</h4>
+    <form id="form">
+			<label for="nome">Nome:</label>
+			<input type="text" name="nome" id="nome" required> <br>
+
+			<label for="telefone">Telefone:</label>
+			<input type="text" name="telefone" id="telefone" required> <br>
+
+			<label for="email">E-mail:</label>
+			<input type="email" name="email" id="email" required> <br>
+
+			<label for="dia">Dia:</label>
+			<input type="date" name="dia" id="dia" required> <br>
+
+			<label for="horario">Horário:</label>
+			<input type="time" name="horario" id="horario" required> <br>
+
+			<label for="num_paticipante">Numero de Paticipante:</label>
+			<input type="number" name="num_paticipante" id="num_paticipante" min="1" required> <br>
+
+			<label for="proposito">Propósito:</label>
+			<textarea name="proposito" id="proposito" rows="6" required></textarea> <br>
+
+			<button class="btn grey" type="submit">Enviar</button>
+		</form>
+</div>
+<script src="assets/js/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script>
+$("#form").submit(function(event){
+      event.preventDefault();
+      var form = $(this);
+      $.ajax({
+        type: "POST",
+        data: form.serialize(),
+        url: "https://eusouasc.com.br/esm2/php/enviar_email.php", // Colocar o link da pagina php que envia o e-mail
+        async: false
+      }).then(function(response){
+        var result = $.parseJSON(response);
+        if (result.status == true) {
+          alert("Enviado com Sucesso!");
+
+          form.each(function(){
+            this.reset();
+          });
+        }
+        else{
+          alert("Erro ao Enviar!");
+        }
+      }, function(){
+        alert("Enviado com Sucesso!");
+
+        form.each(function(){
+          this.reset();
+        });
+      });
+    });
+</script>
+</body>
+  </html>

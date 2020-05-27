@@ -1,0 +1,55 @@
+#carousel{
+  position: relative;
+  top: 10px;
+}
+
+/* efeito cards home */
+#card :hover{
+  background-color: black;
+}
+/* logo navbar */
+#logo{
+  position: relative;
+  width: 150px;
+  top: 3px;
+}
+/* botao home navbar */
+#home{
+  position: relative;
+  left:  10px;
+}
+/* icone telefone pagina fale conosco */
+#call2{
+  position: relative;
+  right: 50px;
+  top: 10px;
+  width: 55px;
+
+}
+/* imagem whatsapp pagina fale conosco */
+#wtp{
+  position: relative;
+  left: 50px;
+  top: 8px;
+  width: 50px;
+}
+/* mapa pagina fale conosco */
+#mapa{
+  position: relative;
+  width: 100%;
+  top:  30px;
+}
+/* imagem pagina visitas */
+#imgv{
+  position: relative;
+  top:10px;
+}
+#carousel{
+  position: relative;
+  top: 10px;
+}
+/* carousel indicador */
+#pn{
+  position: relative;
+  top: 10px;
+}
